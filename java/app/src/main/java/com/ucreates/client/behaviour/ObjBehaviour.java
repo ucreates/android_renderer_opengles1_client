@@ -11,9 +11,7 @@ package com.ucreates.client.behaviour;
 import android.content.Context;
 import com.frontend.behaviour.BaseBehaviour;
 import com.ucreates.renderer.asset.BaseAsset;
-import com.ucreates.renderer.asset.mesh.CubeAsset1;
 import com.ucreates.renderer.asset.mesh.ObjAsset;
-import com.ucreates.renderer.entity.GLESColor;
 import com.ucreates.renderer.entity.Mesh;
 import java.util.Random;
 public class ObjBehaviour extends BaseBehaviour {
