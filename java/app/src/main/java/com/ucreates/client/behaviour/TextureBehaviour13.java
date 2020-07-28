@@ -11,15 +11,14 @@ package com.ucreates.client.behaviour;
 import android.content.Context;
 import com.frontend.behaviour.BaseBehaviour;
 import com.ucreates.renderer.asset.BaseAsset;
-import com.ucreates.renderer.asset.mesh.SphereAsset2;
+import com.ucreates.renderer.asset.polygon.TriangleAsset2;
 import com.ucreates.renderer.entity.GLESColor;
-public class SphereBehaviour2 extends BaseBehaviour {
+public class TextureBehaviour13 extends BaseBehaviour {
     public BaseAsset asset;
-    private float rotate;
-    public SphereBehaviour2(Context context) {
+    public TextureBehaviour13(Context context) {
         super(context);
-        this.asset = new SphereAsset2(1, 30, GLESColor.white);
-        this.asset.create();
+        this.asset = new TriangleAsset2(1, 1, GLESColor.white);
+        this.asset.create("texture01.jpg", context);
         return;
     }
     @Override
@@ -30,9 +29,7 @@ public class SphereBehaviour2 extends BaseBehaviour {
     public void onUpdate(double delta) {
         this.asset.transform.setPosition(0.0f, 0.0f, 0.0f);
         this.asset.transform.setScale(1.0f, 1.0f, 1.0f);
-        this.asset.transform.setRotation(this.rotate, this.rotate, this.rotate);
-        this.asset.vertex.setRandomColor();
-        this.rotate += 1.0f;
+        this.asset.transform.setRotation(0.0f, 0.0f, 0.0f);
         return;
     }
 }

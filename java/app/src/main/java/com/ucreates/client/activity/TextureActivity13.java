@@ -11,19 +11,18 @@ package com.ucreates.client.activity;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import android.renderscript.Float3;
 import android.support.v7.app.AppCompatActivity;
 import com.ucreates.client.R;
-import com.ucreates.client.behaviour.SphereBehaviour2;
+import com.ucreates.client.behaviour.TextureBehaviour13;
 import com.ucreates.renderer.entity.GLESColor;
 import com.ucreates.renderer.renderer.GLES1Renderer;
 import com.ucreates.renderer.timer.TimeInterval;
 import java.util.ArrayList;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-public class SphereActivity2 extends AppCompatActivity implements GLSurfaceView.Renderer {
+public class TextureActivity13 extends AppCompatActivity implements GLSurfaceView.Renderer {
     private GLES1Renderer renderer;
-    private ArrayList<SphereBehaviour2> behaviours;
+    private ArrayList<TextureBehaviour13> behaviours;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,16 +36,14 @@ public class SphereActivity2 extends AppCompatActivity implements GLSurfaceView.
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         Context context = this.getApplicationContext();
-        this.behaviours = new ArrayList<SphereBehaviour2>();
+        this.behaviours = new ArrayList<TextureBehaviour13>();
         for (int i = 0; i < 1; i++) {
-            this.behaviours.add(new SphereBehaviour2(context));
+            this.behaviours.add(new TextureBehaviour13(context));
         }
         this.renderer = new GLES1Renderer();
         this.renderer.create();
         this.renderer.camera.setClear(GLESColor.black);
-        this.renderer.camera.setClippingPlane(0.1f, 100.0f);
-        this.renderer.camera.setFOV(60.0f);
-        this.renderer.camera.setLookAt(new Float3(0.0f, 0.0f, -5.0f), new Float3(0.0f, 0.0f, 0.0f), new Float3(0.0f, 1.0f, 0.0f));
+        this.renderer.camera.setClippingPlane(-100.0f, 100.0f);
         return;
     }
     @Override
@@ -58,9 +55,9 @@ public class SphereActivity2 extends AppCompatActivity implements GLSurfaceView.
     public void onDrawFrame(GL10 gl) {
         TimeInterval timer = TimeInterval.getInstance();
         timer.update();
-        this.renderer.transform(gl, GLES1Renderer.DIMENSION3D);
+        this.renderer.transform(gl, GLES1Renderer.DIMENSION2D);
         for (int i = 0; i < this.behaviours.size(); i++) {
-            SphereBehaviour2 behaviour = this.behaviours.get(i);
+            TextureBehaviour13 behaviour = this.behaviours.get(i);
             behaviour.onUpdate(timer.getDelta());
             this.renderer.render(behaviour.asset);
         }
