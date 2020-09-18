@@ -11,14 +11,15 @@ package com.ucreates.client.behaviour;
 import android.content.Context;
 import com.frontend.behaviour.BaseBehaviour;
 import com.ucreates.renderer.asset.BaseAsset;
-import com.ucreates.renderer.asset.mesh.CircleAsset1;
+import com.ucreates.renderer.asset.mesh.CubeAsset3;
 import com.ucreates.renderer.entity.GLESColor;
-public class TextureBehaviour6 extends BaseBehaviour {
+public class CubeBehaviour3 extends BaseBehaviour {
     public BaseAsset asset;
-    public TextureBehaviour6(Context context) {
+    private float rotate;
+    public CubeBehaviour3(Context context) {
         super(context);
-        this.asset = new CircleAsset1(0.5f, 90, GLESColor.white);
-        this.asset.create("texture01.jpg", context);
+        this.asset = new CubeAsset3(1, 1, 1, GLESColor.white);
+        this.asset.create();
         return;
     }
     @Override
@@ -29,7 +30,9 @@ public class TextureBehaviour6 extends BaseBehaviour {
     public void onUpdate(double delta) {
         this.asset.transform.setPosition(0.0f, 0.0f, 0.0f);
         this.asset.transform.setScale(1.0f, 1.0f, 1.0f);
-        this.asset.transform.setRotation(0.0f, 0.0f, 0.0f);
+        this.asset.transform.setRotation(this.rotate, this.rotate, this.rotate);
+        this.asset.vertex.setRandomColor();
+        this.rotate += 1.0f;
         return;
     }
 }
