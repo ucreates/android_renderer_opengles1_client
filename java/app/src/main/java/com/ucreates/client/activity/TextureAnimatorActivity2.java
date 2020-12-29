@@ -43,7 +43,7 @@ public class TextureAnimatorActivity2 extends AppCompatActivity implements GLSur
         this.renderer = new GLES1Renderer();
         this.renderer.create();
         this.renderer.camera.setClear(GLESColor.white);
-        this.renderer.camera.setClippingPlane(-100.0f, 100.0f);
+        this.renderer.camera.setClippingPlane(-1.0f, 1.0f, GLES1Renderer.DIMENSION2D);
         return;
     }
     @Override
@@ -55,6 +55,7 @@ public class TextureAnimatorActivity2 extends AppCompatActivity implements GLSur
     public void onDrawFrame(GL10 gl) {
         TimeInterval timer = TimeInterval.getInstance();
         timer.update();
+        this.renderer.clear();
         this.renderer.transform(gl, GLES1Renderer.DIMENSION2D);
         for (int i = 0; i < this.behaviours.size(); i++) {
             TextureAnimatorBehaviour2 behaviour = this.behaviours.get(i);

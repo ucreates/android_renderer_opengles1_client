@@ -43,7 +43,7 @@ public class TextureActivity18 extends AppCompatActivity implements GLSurfaceVie
         this.renderer = new GLES1Renderer();
         this.renderer.create();
         this.renderer.camera.setClear(GLESColor.black);
-        this.renderer.camera.setClippingPlane(-100.0f, 100.0f);
+        this.renderer.camera.setClippingPlane(-1.0f, 1.0f, GLES1Renderer.DIMENSION2D);
         return;
     }
     @Override
@@ -55,6 +55,7 @@ public class TextureActivity18 extends AppCompatActivity implements GLSurfaceVie
     public void onDrawFrame(GL10 gl) {
         TimeInterval timer = TimeInterval.getInstance();
         timer.update();
+        this.renderer.clear();
         this.renderer.transform(gl, GLES1Renderer.DIMENSION2D);
         for (int i = 0; i < this.behaviours.size(); i++) {
             TextureBehaviour18 behaviour = this.behaviours.get(i);

@@ -56,7 +56,7 @@ public class LightingActivity2 extends AppCompatActivity implements GLSurfaceVie
         this.renderer = new GLES1Renderer();
         this.renderer.create();
         this.renderer.camera.setClear(GLESColor.black);
-        this.renderer.camera.setClippingPlane(0.1f, 100.0f);
+        this.renderer.camera.setClippingPlane(0.1f, 100.0f, GLES1Renderer.DIMENSION3D);
         this.renderer.camera.setFOV(60.0f);
         this.renderer.camera.setLookAt(new Float3(0.0f, 0.0f, -5.0f), new Float3(0.0f, 0.0f, 0.0f), new Float3(0.0f, 1.0f, 0.0f));
         this.renderer.addLight(light1);
@@ -72,6 +72,7 @@ public class LightingActivity2 extends AppCompatActivity implements GLSurfaceVie
     public void onDrawFrame(GL10 gl) {
         TimeInterval timer = TimeInterval.getInstance();
         timer.update();
+        this.renderer.clear();
         this.renderer.transform(gl, GLES1Renderer.DIMENSION3D);
         for (int i = 0; i < this.behaviours.size(); i++) {
             CubeBehaviour1 behaviour = this.behaviours.get(i);

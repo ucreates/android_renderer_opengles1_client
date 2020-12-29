@@ -48,7 +48,7 @@ public class WipeActivity2 extends AppCompatActivity implements GLSurfaceView.Re
         this.renderer = new GLES1Renderer();
         this.renderer.create();
         this.renderer.camera.setClear(GLESColor.black);
-        this.renderer.camera.setClippingPlane(0.1f, 100.0f);
+        this.renderer.camera.setClippingPlane(0.1f, 100.0f, GLES1Renderer.DIMENSION3D);
         this.renderer.camera.setFOV(60.0f);
         this.renderer.camera.setLookAt(new Float3(0.0f, 0.0f, -5.0f), new Float3(0.0f, 0.0f, 0.0f), new Float3(0.0f, 1.0f, 0.0f));
         this.wipe = new WipeAsset1(0.5f, 100, 5.0f);
@@ -66,6 +66,7 @@ public class WipeActivity2 extends AppCompatActivity implements GLSurfaceView.Re
         long currentTime = System.currentTimeMillis();
         long delta = currentTime - this.previewTime;
         this.previewTime = currentTime;
+        this.renderer.clear();
         this.renderer.transform(gl, GLES1Renderer.DIMENSION3D);
         this.renderer.render(this.wipe, GLES1Renderer.WIPEIN, delta, 2000);
         for (int i = 0; i < this.behaviours.size(); i++) {
