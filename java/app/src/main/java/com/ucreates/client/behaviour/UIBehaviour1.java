@@ -26,7 +26,7 @@ public class UIBehaviour1 extends BaseBehaviour {
         for (int i = 0; i < 10; i++) {
             String path = String.format("number%02d.png", i);
             BaseAsset frame = new RectangleAsset1(1, 1, GLESColor.white);
-            frame.create(path, context);
+            frame.create(path, GLES11.GL_TEXTURE10, context);
             frame.blend = blend;
             animatorAsset.add(frame);
         }
@@ -42,7 +42,7 @@ public class UIBehaviour1 extends BaseBehaviour {
     @Override
     public void onUpdate(double delta) {
         this.asset.transform.setPosition(0.0f, 0.1f, 0.0f);
-        this.asset.transform.setScale(0.1f, 0.1f, 1.0f);
+        this.asset.transform.setScale(1.0f, 1.0f, 1.0f);
         this.asset.transform.setRotation(0.0f, 0.0f, 0.0f);
         return;
     }

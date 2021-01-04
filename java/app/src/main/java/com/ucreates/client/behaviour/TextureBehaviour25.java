@@ -17,7 +17,7 @@ public class TextureBehaviour25 extends BaseBehaviour {
     public BaseAsset asset;
     public TextureBehaviour25(Context context) {
         super(context);
-        this.asset = new CircleAsset4(0.5f, 90, GLESColor.white);
+        this.asset = new CircleAsset4(1.0f, 90, GLESColor.white);
         this.asset.create("texture01.jpg", context);
         return;
     }

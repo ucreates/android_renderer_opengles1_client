@@ -87,7 +87,7 @@ public class TextureAnimatorBehaviour2 extends BaseBehaviour {
         float x = (float) Math.cos(this.timeLine.currentFrame) * -0.25f;
         float y = (float) Math.sin(this.timeLine.currentFrame) * 0.25f;
         this.asset.transform.setPosition(x, y, 0.0f);
-        this.asset.transform.setScale(1.0f, 1.0f, 1.0f);
+        this.asset.transform.setScale(0.1f, 0.1f, 1.0f);
         this.asset.transform.setRotation(0.0f, 0.0f, 0.0f);
         this.timeLine.next((float) delta);
         return;

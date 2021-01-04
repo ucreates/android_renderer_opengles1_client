@@ -19,7 +19,7 @@ public class BackgroundBehaviour1 extends BaseBehaviour {
     public BackgroundBehaviour1(Context context) {
         super(context);
         this.asset = new RectangleAsset1(1, 1, GLESColor.white);
-        this.asset.create("texture01.jpg", GLES11.GL_TEXTURE10, context);
+        this.asset.create("bg.jpg", GLES11.GL_TEXTURE10, context);
         return;
     }
     @Override
@@ -29,7 +29,7 @@ public class BackgroundBehaviour1 extends BaseBehaviour {
     @Override
     public void onUpdate(double delta) {
         this.asset.transform.setPosition(0.0f, 0.0f, 0.0f);
-        this.asset.transform.setScale(2.0f, 2.0f, 2.0f);
+        this.asset.transform.setScale(1.0f, 1.0f, 1.0f);
         this.asset.transform.setRotation(0.0f, 0.0f, 0.0f);
         return;
     }
