@@ -11,21 +11,21 @@ package com.ucreates.client.behaviour;
 import android.content.Context;
 import android.opengl.GLES11;
 import com.frontend.behaviour.BaseBehaviour;
-import com.ucreates.renderer.asset.BaseAsset;
-import com.ucreates.renderer.asset.TextureAnimatorAsset;
-import com.ucreates.renderer.asset.polygon.RectangleAsset1;
-import com.ucreates.renderer.entity.GLESBlend;
-import com.ucreates.renderer.entity.GLESColor;
+import com.ucreates.renderer.asset.GLES1BaseAsset;
+import com.ucreates.renderer.asset.GLES1TextureAnimatorAsset;
+import com.ucreates.renderer.asset.polygon.GLES1RectangleAsset1;
+import com.ucreates.renderer.entity.GLES1Blend;
+import com.ucreates.renderer.entity.GLES1Color;
 public class UIBehaviour1 extends BaseBehaviour {
-    public BaseAsset asset;
+    public GLES1BaseAsset asset;
     public UIBehaviour1(Context context) {
         super(context);
-        GLESBlend blend = new GLESBlend();
+        GLES1Blend blend = new GLES1Blend();
         blend.normal();
-        TextureAnimatorAsset animatorAsset = new TextureAnimatorAsset();
+        GLES1TextureAnimatorAsset animatorAsset = new GLES1TextureAnimatorAsset();
         for (int i = 0; i < 10; i++) {
             String path = String.format("number%02d.png", i);
-            BaseAsset frame = new RectangleAsset1(1, 1, GLESColor.white);
+            GLES1BaseAsset frame = new GLES1RectangleAsset1(1, 1, GLES1Color.white);
             frame.create(path, GLES11.GL_TEXTURE10, context);
             frame.blend = blend;
             animatorAsset.add(frame);

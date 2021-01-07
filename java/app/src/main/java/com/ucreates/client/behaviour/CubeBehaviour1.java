@@ -10,15 +10,15 @@
 package com.ucreates.client.behaviour;
 import android.content.Context;
 import com.frontend.behaviour.BaseBehaviour;
-import com.ucreates.renderer.asset.BaseAsset;
-import com.ucreates.renderer.asset.mesh.CubeAsset1;
-import com.ucreates.renderer.entity.GLESColor;
+import com.ucreates.renderer.asset.GLES1BaseAsset;
+import com.ucreates.renderer.asset.mesh.GLES1CubeAsset1;
+import com.ucreates.renderer.entity.GLES1Color;
 public class CubeBehaviour1 extends BaseBehaviour {
-    public BaseAsset asset;
+    public GLES1BaseAsset asset;
     private float rotate;
     public CubeBehaviour1(Context context) {
         super(context);
-        this.asset = new CubeAsset1(1, 1, 1, GLESColor.white);
+        this.asset = new GLES1CubeAsset1(1, 1, 1, GLES1Color.white);
         this.asset.create();
         return;
     }

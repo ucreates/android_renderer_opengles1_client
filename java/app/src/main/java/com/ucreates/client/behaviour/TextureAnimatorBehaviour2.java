@@ -10,21 +10,21 @@
 package com.ucreates.client.behaviour;
 import android.content.Context;
 import com.frontend.behaviour.BaseBehaviour;
-import com.ucreates.renderer.asset.BaseAsset;
-import com.ucreates.renderer.asset.TextureAtlasAnimatorAsset;
-import com.ucreates.renderer.asset.polygon.RectangleAsset1;
-import com.ucreates.renderer.entity.GLESBlend;
-import com.ucreates.renderer.entity.GLESColor;
+import com.ucreates.renderer.asset.GLES1BaseAsset;
+import com.ucreates.renderer.asset.GLES1TextureAtlasAnimatorAsset;
+import com.ucreates.renderer.asset.polygon.GLES1RectangleAsset1;
+import com.ucreates.renderer.entity.GLES1Blend;
+import com.ucreates.renderer.entity.GLES1Color;
 public class TextureAnimatorBehaviour2 extends BaseBehaviour {
-    public BaseAsset asset;
+    public GLES1BaseAsset asset;
     public TextureAnimatorBehaviour2(Context context) {
         super(context);
-        GLESBlend blend = new GLESBlend();
+        GLES1Blend blend = new GLES1Blend();
         blend.normal();
-        BaseAsset frame = new RectangleAsset1(1, 1, GLESColor.white);
+        GLES1BaseAsset frame = new GLES1RectangleAsset1(1, 1, GLES1Color.white);
         frame.create("animation.png", context);
         frame.blend = blend;
-        TextureAtlasAnimatorAsset animatorAsset = new TextureAtlasAnimatorAsset();
+        GLES1TextureAtlasAnimatorAsset animatorAsset = new GLES1TextureAtlasAnimatorAsset();
         float u[] = {
             0.0f,
             0.084f,

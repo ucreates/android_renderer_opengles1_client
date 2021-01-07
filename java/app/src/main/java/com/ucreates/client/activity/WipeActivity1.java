@@ -14,16 +14,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import com.ucreates.client.R;
 import com.ucreates.client.behaviour.TriangleBehaviour1;
-import com.ucreates.renderer.asset.wipe.WipeAsset1;
-import com.ucreates.renderer.entity.GLESColor;
+import com.ucreates.renderer.asset.wipe.GLES1WipeAsset1;
+import com.ucreates.renderer.entity.GLES1Color;
 import com.ucreates.renderer.renderer.GLES1Renderer;
-import com.ucreates.renderer.timer.TimeInterval;
+import com.ucreates.renderer.timer.GLES1TimeInterval;
 import java.util.ArrayList;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 public class WipeActivity1 extends AppCompatActivity implements GLSurfaceView.Renderer {
     private GLES1Renderer renderer;
-    private WipeAsset1 wipe;
+    private GLES1WipeAsset1 wipe;
     private long previewTime;
     private ArrayList<TriangleBehaviour1> behaviours;
     @Override
@@ -46,9 +46,9 @@ public class WipeActivity1 extends AppCompatActivity implements GLSurfaceView.Re
         }
         this.renderer = new GLES1Renderer();
         this.renderer.create();
-        this.renderer.camera.setClear(GLESColor.black);
+        this.renderer.camera.setClear(GLES1Color.black);
         this.renderer.camera.setClippingPlane(-1.0f, 1.0f, GLES1Renderer.DIMENSION2D);
-        this.wipe = new WipeAsset1(0.5f, 100, 5.0f);
+        this.wipe = new GLES1WipeAsset1(0.5f, 100, 5.0f);
         this.wipe.create(GLES1Renderer.DIMENSION2D);
         this.previewTime = System.currentTimeMillis();
         return;

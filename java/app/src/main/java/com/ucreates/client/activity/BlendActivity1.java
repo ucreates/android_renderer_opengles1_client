@@ -17,9 +17,9 @@ import com.ucreates.client.behaviour.BlendBehaviour;
 import com.ucreates.client.behaviour.BlendBehaviour1;
 import com.ucreates.client.behaviour.BlendBehaviour2;
 import com.ucreates.client.behaviour.BlendBehaviour3;
-import com.ucreates.renderer.entity.GLESColor;
+import com.ucreates.renderer.entity.GLES1Color;
 import com.ucreates.renderer.renderer.GLES1Renderer;
-import com.ucreates.renderer.timer.TimeInterval;
+import com.ucreates.renderer.timer.GLES1TimeInterval;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -47,7 +47,7 @@ public class BlendActivity1 extends AppCompatActivity implements GLSurfaceView.R
         this.behaviours.add(new BlendBehaviour3(context));
         this.renderer = new GLES1Renderer();
         this.renderer.create();
-        this.renderer.camera.setClear(GLESColor.black);
+        this.renderer.camera.setClear(GLES1Color.black);
         this.renderer.camera.setClippingPlane(-1.0f, 1.0f, GLES1Renderer.DIMENSION2D);
         return;
     }
@@ -71,7 +71,7 @@ public class BlendActivity1 extends AppCompatActivity implements GLSurfaceView.R
             }
         };
         Collections.sort(this.behaviours, comparator);
-        TimeInterval timer = TimeInterval.getInstance();
+        GLES1TimeInterval timer = GLES1TimeInterval.getInstance();
         timer.update();
         this.renderer.clear();
         this.renderer.transform(gl, GLES1Renderer.DIMENSION2D);

@@ -14,9 +14,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import com.ucreates.client.R;
 import com.ucreates.client.behaviour.TextureBehaviour24;
-import com.ucreates.renderer.entity.GLESColor;
+import com.ucreates.renderer.entity.GLES1Color;
 import com.ucreates.renderer.renderer.GLES1Renderer;
-import com.ucreates.renderer.timer.TimeInterval;
+import com.ucreates.renderer.timer.GLES1TimeInterval;
 import java.util.ArrayList;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -42,7 +42,7 @@ public class TextureActivity24 extends AppCompatActivity implements GLSurfaceVie
         }
         this.renderer = new GLES1Renderer();
         this.renderer.create();
-        this.renderer.camera.setClear(GLESColor.black);
+        this.renderer.camera.setClear(GLES1Color.black);
         this.renderer.camera.setClippingPlane(-1.0f, 1.0f, GLES1Renderer.DIMENSION2D);
         return;
     }
@@ -53,7 +53,7 @@ public class TextureActivity24 extends AppCompatActivity implements GLSurfaceVie
     }
     @Override
     public void onDrawFrame(GL10 gl) {
-        TimeInterval timer = TimeInterval.getInstance();
+        GLES1TimeInterval timer = GLES1TimeInterval.getInstance();
         timer.update();
         this.renderer.clear();
         this.renderer.transform(gl, GLES1Renderer.DIMENSION2D);

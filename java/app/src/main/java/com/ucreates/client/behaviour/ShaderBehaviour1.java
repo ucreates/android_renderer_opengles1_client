@@ -10,18 +10,18 @@
 package com.ucreates.client.behaviour;
 import android.content.Context;
 import com.frontend.behaviour.BaseBehaviour;
-import com.ucreates.renderer.asset.BaseAsset;
+import com.ucreates.renderer.asset.GLES1BaseAsset;
 import com.ucreates.renderer.asset.GLES1ShaderAsset;
-import com.ucreates.renderer.asset.mesh.SphereAsset1;
-import com.ucreates.renderer.entity.GLESColor;
+import com.ucreates.renderer.asset.mesh.GLES1SphereAsset1;
+import com.ucreates.renderer.entity.GLES1Color;
 public class ShaderBehaviour1 extends BaseBehaviour {
-    public BaseAsset asset;
+    public GLES1BaseAsset asset;
     private float rotate;
     public ShaderBehaviour1(Context context) {
         super(context);
         GLES1ShaderAsset shader = new GLES1ShaderAsset();
         shader.setFlat();
-        this.asset = new SphereAsset1(1, 30, GLESColor.red);
+        this.asset = new GLES1SphereAsset1(1, 30, GLES1Color.red);
         this.asset.shader = shader;
         this.asset.create();
         return;

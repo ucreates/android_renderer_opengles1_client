@@ -9,15 +9,15 @@
 // ======================================================================
 package com.ucreates.client.behaviour;
 import android.content.Context;
-import com.ucreates.renderer.asset.polygon.TriangleAsset1;
-import com.ucreates.renderer.entity.GLESBlend;
-import com.ucreates.renderer.entity.GLESColor;
+import com.ucreates.renderer.asset.polygon.GLES1TriangleAsset1;
+import com.ucreates.renderer.entity.GLES1Blend;
+import com.ucreates.renderer.entity.GLES1Color;
 public class BlendBehaviour2 extends BlendBehaviour {
     public BlendBehaviour2(Context context) {
         super(context);
-        GLESBlend blend = new GLESBlend();
+        GLES1Blend blend = new GLES1Blend();
         blend.normal();
-        this.asset = new TriangleAsset1(1, 1, GLESColor.green(0.5f));
+        this.asset = new GLES1TriangleAsset1(1, 1, GLES1Color.green(0.5f));
         this.asset.blend = blend;
         this.asset.create();
         return;

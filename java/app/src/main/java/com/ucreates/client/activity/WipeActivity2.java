@@ -15,16 +15,16 @@ import android.renderscript.Float3;
 import android.support.v7.app.AppCompatActivity;
 import com.ucreates.client.R;
 import com.ucreates.client.behaviour.CubeBehaviour1;
-import com.ucreates.renderer.asset.wipe.WipeAsset1;
-import com.ucreates.renderer.entity.GLESColor;
+import com.ucreates.renderer.asset.wipe.GLES1WipeAsset1;
+import com.ucreates.renderer.entity.GLES1Color;
 import com.ucreates.renderer.renderer.GLES1Renderer;
-import com.ucreates.renderer.timer.TimeInterval;
+import com.ucreates.renderer.timer.GLES1TimeInterval;
 import java.util.ArrayList;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 public class WipeActivity2 extends AppCompatActivity implements GLSurfaceView.Renderer {
     private GLES1Renderer renderer;
-    private WipeAsset1 wipe;
+    private GLES1WipeAsset1 wipe;
     private long previewTime;
     private ArrayList<CubeBehaviour1> behaviours;
     @Override
@@ -47,11 +47,11 @@ public class WipeActivity2 extends AppCompatActivity implements GLSurfaceView.Re
         }
         this.renderer = new GLES1Renderer();
         this.renderer.create();
-        this.renderer.camera.setClear(GLESColor.black);
+        this.renderer.camera.setClear(GLES1Color.black);
         this.renderer.camera.setClippingPlane(0.1f, 100.0f, GLES1Renderer.DIMENSION3D);
         this.renderer.camera.setFOV(60.0f);
         this.renderer.camera.setLookAt(new Float3(0.0f, 0.0f, -5.0f), new Float3(0.0f, 0.0f, 0.0f), new Float3(0.0f, 1.0f, 0.0f));
-        this.wipe = new WipeAsset1(0.5f, 100, 5.0f);
+        this.wipe = new GLES1WipeAsset1(0.5f, 100, 5.0f);
         this.wipe.create(GLES1Renderer.DIMENSION3D);
         this.previewTime = System.currentTimeMillis();
         return;

@@ -17,13 +17,13 @@ import android.support.v7.app.AppCompatActivity;
 import com.ucreates.client.R;
 import com.ucreates.client.behaviour.CubeBehaviour1;
 import com.ucreates.client.behaviour.ObjBehaviour;
-import com.ucreates.renderer.asset.BaseAsset;
-import com.ucreates.renderer.asset.mesh.ObjAsset;
-import com.ucreates.renderer.entity.GLESColor;
-import com.ucreates.renderer.entity.Mesh;
+import com.ucreates.renderer.asset.GLES1BaseAsset;
+import com.ucreates.renderer.asset.mesh.GLES1ObjAsset;
+import com.ucreates.renderer.entity.GLES1Color;
+import com.ucreates.renderer.entity.GLES1Mesh;
 import com.ucreates.renderer.enviroment.GLES1Light;
 import com.ucreates.renderer.renderer.GLES1Renderer;
-import com.ucreates.renderer.timer.TimeInterval;
+import com.ucreates.renderer.timer.GLES1TimeInterval;
 import java.util.ArrayList;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -49,12 +49,12 @@ public class ObjActivity1 extends AppCompatActivity implements GLSurfaceView.Ren
         }
         GLES1Light light = new GLES1Light(GLES11.GL_LIGHT0);
         light.setPosition(-5.0f, 0, -5.0f);
-        light.setAmbient(GLESColor.black);
-        light.setDiffuse(GLESColor.white);
-        light.setSpecular(GLESColor.white);
+        light.setAmbient(GLES1Color.black);
+        light.setDiffuse(GLES1Color.white);
+        light.setSpecular(GLES1Color.white);
         this.renderer = new GLES1Renderer();
         this.renderer.create();
-        this.renderer.camera.setClear(GLESColor.black);
+        this.renderer.camera.setClear(GLES1Color.black);
         this.renderer.camera.setClippingPlane(0.1f, 100.0f, GLES1Renderer.DIMENSION3D);
         this.renderer.camera.setFOV(60.0f);
         this.renderer.camera.setLookAt(new Float3(0.0f, 0.0f, -1.0f), new Float3(0.0f, 0.0f, 0.0f), new Float3(0.0f, 1.0f, 0.0f));
@@ -68,14 +68,14 @@ public class ObjActivity1 extends AppCompatActivity implements GLSurfaceView.Ren
     }
     @Override
     public void onDrawFrame(GL10 gl) {
-        TimeInterval timer = TimeInterval.getInstance();
+        GLES1TimeInterval timer = GLES1TimeInterval.getInstance();
         timer.update();
         this.renderer.clear();
         this.renderer.transform(gl, GLES1Renderer.DIMENSION3D);
         for (int i = 0; i < this.behaviours.size(); i++) {
             ObjBehaviour behaviour = this.behaviours.get(i);
             behaviour.onUpdate(timer.getDelta());
-            ObjAsset asset = (ObjAsset) behaviour.asset;
+            GLES1ObjAsset asset = (GLES1ObjAsset) behaviour.asset;
             this.renderer.render(asset.subMeshes);
         }
         return;

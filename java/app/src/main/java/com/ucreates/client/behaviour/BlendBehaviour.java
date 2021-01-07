@@ -10,11 +10,11 @@
 package com.ucreates.client.behaviour;
 import android.content.Context;
 import com.frontend.behaviour.BaseBehaviour;
-import com.ucreates.renderer.asset.BaseAsset;
-import com.ucreates.renderer.asset.polygon.TriangleAsset1;
-import com.ucreates.renderer.entity.GLESColor;
+import com.ucreates.renderer.asset.GLES1BaseAsset;
+import com.ucreates.renderer.asset.polygon.GLES1TriangleAsset1;
+import com.ucreates.renderer.entity.GLES1Color;
 public class BlendBehaviour extends BaseBehaviour {
-    public BaseAsset asset;
+    public GLES1BaseAsset asset;
     public BlendBehaviour(Context context) {
         super(context);
         return;

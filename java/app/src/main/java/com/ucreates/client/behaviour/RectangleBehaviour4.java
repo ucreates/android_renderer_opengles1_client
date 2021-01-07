@@ -10,14 +10,14 @@
 package com.ucreates.client.behaviour;
 import android.content.Context;
 import com.frontend.behaviour.BaseBehaviour;
-import com.ucreates.renderer.asset.BaseAsset;
-import com.ucreates.renderer.asset.polygon.RectangleAsset4;
-import com.ucreates.renderer.entity.GLESColor;
+import com.ucreates.renderer.asset.GLES1BaseAsset;
+import com.ucreates.renderer.asset.polygon.GLES1RectangleAsset4;
+import com.ucreates.renderer.entity.GLES1Color;
 public class RectangleBehaviour4 extends BaseBehaviour {
-    public BaseAsset asset;
+    public GLES1BaseAsset asset;
     public RectangleBehaviour4(Context context) {
         super(context);
-        this.asset = new RectangleAsset4(1, 1, GLESColor.white);
+        this.asset = new GLES1RectangleAsset4(1, 1, GLES1Color.white);
         this.asset.create();
         return;
     }

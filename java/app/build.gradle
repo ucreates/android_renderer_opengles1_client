@@ -21,7 +21,7 @@ repositories {
         url 'https://github.com/ucreates/android_foundation/raw/master/repository/java/'
     }
     maven {
-        url 'https://github.com/ucreates/android_renderer/raw/master/repository/java/renderer/gles1'
+        url 'https://github.com/doasterisk/android_renderer/raw/master/repository/java/renderer/gles1'
     }
 }
 dependencies {
@@ -29,7 +29,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.ucreates:foundation:1.0.1'
-    implementation 'com.ucreates:renderer:1.51.2'
+    implementation 'com.ucreates:renderer:1.51.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

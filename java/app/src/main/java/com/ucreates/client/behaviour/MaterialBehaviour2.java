@@ -10,21 +10,21 @@
 package com.ucreates.client.behaviour;
 import android.content.Context;
 import com.frontend.behaviour.BaseBehaviour;
-import com.ucreates.renderer.asset.BaseAsset;
-import com.ucreates.renderer.asset.mesh.CubeAsset1;
-import com.ucreates.renderer.asset.mesh.SphereAsset1;
-import com.ucreates.renderer.entity.GLESColor;
-import com.ucreates.renderer.entity.Material;
+import com.ucreates.renderer.asset.GLES1BaseAsset;
+import com.ucreates.renderer.asset.mesh.GLES1CubeAsset1;
+import com.ucreates.renderer.asset.mesh.GLES1SphereAsset1;
+import com.ucreates.renderer.entity.GLES1Color;
+import com.ucreates.renderer.entity.GLES1Material;
 public class MaterialBehaviour2 extends BaseBehaviour {
-    public BaseAsset asset;
+    public GLES1BaseAsset asset;
     private float rotate;
     public MaterialBehaviour2(Context context) {
         super(context);
-        Material material = new Material();
-        material.setAmbient(new GLESColor(1.0f, 0.0f, 0.0f, 1.0f));
-        material.setDiffuse(new GLESColor(0.0f, 1.0f, 0.0f, 1.0f));
-        material.setSpecular(new GLESColor(1.0f, 1.0f, 1.0f, 1.0f));
-        this.asset = new SphereAsset1(1, 50, GLESColor.white);
+        GLES1Material material = new GLES1Material();
+        material.setAmbient(new GLES1Color(1.0f, 0.0f, 0.0f, 1.0f));
+        material.setDiffuse(new GLES1Color(0.0f, 1.0f, 0.0f, 1.0f));
+        material.setSpecular(new GLES1Color(1.0f, 1.0f, 1.0f, 1.0f));
+        this.asset = new GLES1SphereAsset1(1, 50, GLES1Color.white);
         this.asset.setMaterial(material);
         this.asset.create();
         return;

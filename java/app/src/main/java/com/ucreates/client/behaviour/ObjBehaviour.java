@@ -10,12 +10,12 @@
 package com.ucreates.client.behaviour;
 import android.content.Context;
 import com.frontend.behaviour.BaseBehaviour;
-import com.ucreates.renderer.asset.BaseAsset;
-import com.ucreates.renderer.asset.mesh.ObjAsset;
-import com.ucreates.renderer.entity.Mesh;
+import com.ucreates.renderer.asset.GLES1BaseAsset;
+import com.ucreates.renderer.asset.mesh.GLES1ObjAsset;
+import com.ucreates.renderer.entity.GLES1Mesh;
 import java.util.Random;
 public class ObjBehaviour extends BaseBehaviour {
-    public BaseAsset asset;
+    public GLES1BaseAsset asset;
     private float rotate;
     private int objType;
     public ObjBehaviour(Context context) {
@@ -30,7 +30,7 @@ public class ObjBehaviour extends BaseBehaviour {
         } else {
             objName = "tank.obj";
         }
-        this.asset = new ObjAsset();
+        this.asset = new GLES1ObjAsset();
         this.asset.create(objName, context);
         return;
     }
@@ -40,8 +40,8 @@ public class ObjBehaviour extends BaseBehaviour {
     }
     @Override
     public void onUpdate(double delta) {
-        ObjAsset asset = (ObjAsset) this.asset;
-        for (Mesh mesh : asset.subMeshes) {
+        GLES1ObjAsset asset = (GLES1ObjAsset) this.asset;
+        for (GLES1Mesh mesh : asset.subMeshes) {
             if (0 == this.objType) {
                 mesh.transform.setPosition(0.0f, -0.1f, 0.0f);
                 mesh.transform.setScale(0.025f, 0.025f, 0.025f);

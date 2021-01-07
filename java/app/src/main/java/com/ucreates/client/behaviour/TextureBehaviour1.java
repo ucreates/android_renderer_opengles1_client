@@ -10,14 +10,14 @@
 package com.ucreates.client.behaviour;
 import android.content.Context;
 import com.frontend.behaviour.BaseBehaviour;
-import com.ucreates.renderer.asset.BaseAsset;
-import com.ucreates.renderer.asset.polygon.TriangleAsset1;
-import com.ucreates.renderer.entity.GLESColor;
+import com.ucreates.renderer.asset.GLES1BaseAsset;
+import com.ucreates.renderer.asset.polygon.GLES1TriangleAsset1;
+import com.ucreates.renderer.entity.GLES1Color;
 public class TextureBehaviour1 extends BaseBehaviour {
-    public BaseAsset asset;
+    public GLES1BaseAsset asset;
     public TextureBehaviour1(Context context) {
         super(context);
-        this.asset = new TriangleAsset1(1, 1, GLESColor.white);
+        this.asset = new GLES1TriangleAsset1(1, 1, GLES1Color.white);
         this.asset.create("texture01.jpg", context);
         return;
     }
